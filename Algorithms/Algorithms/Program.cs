@@ -8,10 +8,24 @@ namespace Algorithms
 {
     class Program
     {
-        static void Main(string[] args)
+        // Time complexity: O(n)
+        // Space complexity: O(n)
+        static List<int> twoSum (List<int> numList, int targetNum)
         {
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+            var hasAppeared = new Dictionary<int, int>();
+            var returnList = new List<int>();
+            int index = 0;
+            foreach (int num in numList)
+            {
+                int matchTarget = targetNum - num;
+                var matchTargetIndex = hasAppeared[matchTarget];
+                if (matchTargetIndex != null)
+                {
+                    returnList.Add(matchTargetIndex, index);
+                }
+                index += 1;
+            }
+            return returnList;
         }
     }
 }
